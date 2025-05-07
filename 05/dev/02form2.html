@@ -7,16 +7,17 @@
 </head>
 <body>
   <div class="wrap">
-    <form method='method' action='#' style="width: 50%; margin: 0 auto;">
+    <form method='get' action='#' style="width: 50%; margin: 0 auto;">
         <fieldset>
           <legend>배송 정보</legend>
           <ul>
-            <li><label for="name">이름 :</label> <input type="text" name="name" id="name"> <br>
+            <li><label for="name">이름 :</label> <input type="text" name="name" id="name" maxlength="5" minlength="2"> <br>
             </li>
-            <li><label for="address">배송 주소 :</label> <input type="text" name="address" id="address"></li>
-            <li><label for="email">이메일 :</label> <input type="text" name="email" id="email"></li>
-            <li><label for="number">연락처 :</label> <input type="text" name="number" id="number"></li>
+            <li><label for="address">배송 주소 :</label> <input type="text" name="address" id="address" size="40"></li>
+            <li><label for="email">이메일 :</label> <input type="email" name="email" id="email"></li>
+            <li><label for="number">연락처 :</label> <input type="tel" name="number" id="number"></li>
           </ul>
+          <input type="submit" value="서버로 전송하기">
         </fieldset>
     </form>
 
