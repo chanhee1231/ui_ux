@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .wrap {
+      width: 1200px;
+      margin: 0 auto;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    .logo {
+      width: 100%;
+      height: 60px;
+      border: 1px solid black;
+      margin: 10px 0;
+      background-color: gray;
+    }
+
+    .head {
+      width: 100%;
+      height: 100px;
+      border: 1px solid black;
+      margin-bottom: 10px;
+      background-color: gray;
+    }
+
+    nav {
+      width: 100%;
+    }
+
+    ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 10px;
+      padding: 0;
+    }
+
+    li {
+      width: 30%;
+      height: 40px;
+      border: 1px solid black;
+      text-align: center;
+      margin: 20px;
+      background-color: gray;
+      line-height: 40px;
+    }
+
+    main {
+      width: 100%;
+      display: flex;
+      gap: 20px; /* optional spacing between section and aside */
+      margin-bottom: 10px;
+    }
+
+    main > section {
+      width: 70%;
+    }
+
+    main > section > article {
+      width: 100%;
+      height: 410px;
+      border: 1px solid black;
+      background-color: gray;
+    }
+
+    main > aside {
+      width: 30%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    main > aside > article {
+      width: 100%;
+      background-color: gray;
+      border: 1px solid black;
+    }
+
+    main > aside > article:first-child {
+      height: 180px;
+    }
+
+    main > aside > article:last-child {
+      height: 220px;
+    }
+
+    footer {
+      width: 100%;
+      height: 100px;
+      border: 1px solid black;
+      background-color: gray;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="logo"><p>&lt;company logo and slogan&gt;</p></header>
+    <header class="head"><p>&lt;header&gt;</p></header>
+    <nav>
+      <ul>
+        <li>navi1</li>
+        <li>navi2</li>
+        <li>navi3</li>
+        <li>navi4</li>
+      </ul>
+    </nav>
+    <main>
+      <section>
+        <article><p>&lt;about&gt;</p></article>
+      </section>
+      <aside>
+        <article><p>&lt;quick links1&gt;</p></article>
+        <article><p>&lt;quick links2&gt;</p></article>
+      </aside>
+    </main>
+    <footer><p>&lt;site plan and copyright info&gt;</p></footer>
+  </div>
+</body>
+</html>
