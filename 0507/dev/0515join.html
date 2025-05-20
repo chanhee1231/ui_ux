@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    * {
+        margin: 0;
+        box-sizing: border-box;
+    }
+    .wrap {
+        width: 400px;
+        height: 300px;
+        margin: 30px auto;
+        border: 1px solid black;
+        padding: 20px;
+    }
+    ul {
+        list-style: none;
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+        position: relative;
+        right: 40px;
+    }
+    #id, #pwd {
+        width: 220px ;
+        height: 25px;
+        outline: none;
+        background-color: rgba(173, 167, 167,0.2);
+    }
+    #login-btn {
+    background-color: rgb(192, 22, 22); 
+    width: 90px; 
+    height: 58px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    }
+    .check {
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+    }
+    .button {
+        list-style:none;
+        display: flex;
+        justify-content: space-around;
+    }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+    <h4>로그인</h4>
+    <ul>
+        <li><input type="radio" name="member" checked>회원</li>
+        <li><input type="radio" name="non-member">비회원(주문조회)</li>
+    </ul>
+    <table>
+        <tr>
+        <td><input type="text" name="id" id="id" placeholder="11번가 아이디"></td>
+        <td rowspan="2"><input type="button" value="로그인" id="login-btn" ></td>
+        </tr>
+        <tr>
+        <td><input type="password" name="pwd" id="pwd"></td>
+        </tr>
+    </table>
+    <div class="check-box">
+        <ul class="check">
+        <li><input type="checkbox" name="id-remember" id="id-remember">아이디저장</li>
+        <li><input type="checkbox" name="OTP" id="OTP">OTP 로그인</li>
+        </ul>
+    </div>
+    <ul class="button">
+        <li><input type="button" value="회원가입" id="join-btn" ></li>
+        <li><input type="button" value="아이디 찾기" id="find-id" ></li>
+        <li><input type="button" value="비밀번호 찾기" id="find-pwd" ></li>
+        <li></li>
+    </ul>
+    </div>
+    
+</body>
+</html>

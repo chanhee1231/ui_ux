@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      box-sizing: border-box;
+    }
+    .wrap {
+      margin: 0 auto;
+      width: 900px;
+    }
+    ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+    }
+    ul > li > button {
+      width: 150px;
+      height: 40px;
+      margin-bottom: 20px;
+      margin-top: 20px;
+      
+    }
+    #result {
+      width: 300px;
+      height: 300px;
+      border: 1px solid black;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <ul>
+      <li><button>red</button></li>
+      <li><button>green</button></li>
+      <li><button>yellow</button></li>
+      <li><button id="popupClose">창 닫기</button></li>
+    </ul>
+    <div id="result">
+
+    </div>
+  </div>
+  
+  <script>
+    let btnList = document.querySelectorAll("button")
+    let popupClose = document.querySelector('#popupClose');
+    
+     popupClose.onclick = function(event) {
+    window.close(); 
+  };
+
+    for(let i=0;i<btnList.length;i++) {
+      btnList[i].onmouseover = e=> {
+        let colorText = btnList[i].innerHTML;
+        result.style.backgroundColor = colorText; 
+      }
+    }
+    // btnobj1.onclick = function(event) {
+    //   let colorText = btnobj1.innerHTML;
+    //   result.style.backgroundColor = colorText; 
+    // }
+    // btnobj2.onclick = function(event) {
+    //   let colorText = btnobj2.innerHTML;
+    //   result.style.backgroundColor = colorText; 
+    // }
+    // btnobj3.onclick = function(event) {
+    //   let colorText = btnobj3.innerHTML;
+    //   result.style.backgroundColor = colorText; 
+    // }
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  .wrap {
+    text-align: center;
+  }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+  <h1>3의 배수 찾기</h1>
+
+
+  <script>
+    let num = window.prompt('몇까지 3의 배수를 찾을까요');
+    let count = null;
+    for(let i=1; i<num; i++ ) {
+      if(i == null || i == '') {
+        console.log('고객님이 돌아이다. 아 죽일까 야발')
+       
+      }else if(i % 3==0) {
+        document.write(`${i}, `)
+         count++;
+        
+      }else {
+        console.log('고객님이 돌아이다. 아 죽일까 야발')
+      }
+      
+    }
+    
+    document.write(`<br>${num}까지의 3의 배수의 개수 : ${count}`) 
+  </script>
+  </div>
+</body>
+</html>

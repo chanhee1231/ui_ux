@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      box-sizing: border-box;
+    }
+    .wrap {
+      width: 1120px;
+      margin: 0 auto;
+      border: 1px solid red;
+    }
+    .content {
+      width: 60%;
+      margin: 0 auto;
+      border: 1px solid black;
+      padding: 10px;
+      text-align: center;
+    }
+    .main-img {
+      width: 80%;
+      margin-bottom: 5px;
+      border: 1px dotted red;
+    }
+    .content-img {
+      display: flex;
+      gap: 10px;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      border: 1px solid black;
+      
+    }
+    .sub-img {
+      width: 30%;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="content">
+      <img src="../14/images/prod1.jpg" alt="?" id="main-img">
+      <div class="content-img">
+        <img src="../10/images/cat.png" alt="고양" class="sub-img">
+        <img src="../10/images/2.jpg" alt="고양" class="sub-img">
+        <img src="../07/images/photo.jpg" alt="고양" class="sub-img">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    //객체 찾기
+    let mainImg = document.querySelector('#main-img') //1 
+    let imgSubList = document.querySelectorAll('#sub-img') //3
+    // 객체이벤트
+    for(let i=0;i<imgSubList.length;i++) {
+      imgSubList[i].onmouseover = function(event) {
+      mainImg.src = imgSubList[i].src;
+      eventMessage(mainImg.src);
+    }
+    };
+    mainImg.onclick = function(event) {
+      console.log(`이미지 파일위치 : ${this.src}`);
+      console.log(`이미지 파일위치 : ${mainImg.src}`);
+      console.log(`파일 위치 : ${this.alert(yyy)}`);
+
+    }
+    // 이벤트 핸들러
+    function eventMessage(name) {
+      console.log(`${name} 상품을 선택하셨습니다. 100문장~`);
+    }
+    
+  </script>
+
+</body>
+</html>

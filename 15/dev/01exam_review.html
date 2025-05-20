@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .wrap {
+      width: 900px;
+      height: 100vh;
+      margin: 0 auto;
+    }
+    label {
+      display: inline-block;
+      width: 70px;
+    }
+    .title-area {
+      width: 350px;
+      margin-bottom: 5px;
+    }
+    .content-area {
+      width: 350px;
+      height: 150px;
+      margin-bottom: 5px ;
+    }
+    .submit-button {
+      position: relative;
+      left: 200px;
+      top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <form method='post' action='insert.jsp' class="form-body">
+      <fieldset>
+        <legend>공지사항 작성하기</legend>
+        <label for="title">제목</label>
+        <input type='type' name='title' id="title" placeholder='제목을 입력하세요.' class="title-area"> <br>
+        <label for="content">내용</label>
+        <input type='type' name='content' id="content" placeholder='내용을 입력하세요.' class="content-area"> <br>
+        <label for="file-upload">첨부파일</label>
+        <input type='button' name='file-upload' id="file-upload" value='파일 선택'>
+        <span>선택된 파일 없음</span>
+        <br>
+        <input type='submit' value='전송하기' class="submit-button">
+        </fieldset>
+      </form>
+      <hr>
+      <table>
+          <tr>
+              <th>번호</th>
+              <th colspan="2">제목</th>
+              <th>작성자</th>
+              <th>작성일</th>
+              <th>조회수</th>
+          </tr>
+          <tr>
+              <td>9</td>
+              <td>공지사항 제목 9</td>
+              <td><input type="button"></td>
+              <td></td>
+              <td></td>
+              <td></td>
+          </tr>
+          <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+          </tr>
+      </table>
+  </div>
+  
+</body>
+</html>

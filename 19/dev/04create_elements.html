@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <ul>
+      <li>Lorem ipsum dolor sit amet.</li>
+      <li>Lorem ipsum dolor sit amet.</li>
+      <li>Lorem ipsum dolor sit amet.</li>
+      <li>Lorem ipsum dolor sit amet.</li>
+    </ul>
+    <img src="" alt="">
+  </div>
+  <div>
+   
+    <input type="text" id="message">
+    <button>리스트 추가하기</button>
+    <button>이미지 추가하기</button>
+    <button>자식 제거하기</button>
+  </div>
+  <script>
+    let ul = document.querySelector('.container > ul');
+    let message = document.querySelector('#message');
+    let button = document.querySelector('#message + button');
+    let buttonArray = document.querySelectorAll('#message ~ button');
+
+
+    ul.addEventListener("click", () =>alert('test'), false);
+    //message.addEventListener("blur", () =>alert('test2'), false);
+    button.addEventListener("click",ulInsertLi, false);
+    buttonArray[1].addEventListener("click",liInsertImage, false);
+    buttonArray[2].addEventListener("click", deleteChild,false);
+    
+    function deleteChild() {
+      let liArray = document.querySelectorAll("ul > li")
+      ul.removeChild(liArray[3])  
+      }
+
+    function ulInsertLi() {
+      let dataMessage = message.value;
+      let liNode = document.createElement("li");
+      let textNode = document.createTextNode(dataMessage);
+      liNode.appendChild(textNode);
+      ul.appendChild(liNode);
+    };
+    function liInsertImage(){
+      let imgNode = document.createElement("img"); 
+      imgNode.src="./../images/cat.png";
+      imgNode.alt="책그림";
+      imgNode.style.maxWidth = "100%";
+      ul.appendChild(imgNode);
+    }
+    
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    * {
+      margin: 0;
+      box-sizing: border-box;
+    }
+    .wrap {
+      width: 960px;
+      height: 100vh;
+      margin: 0 auto;
+      position: relative;
+      
+    }
+    
+    .main-logo {
+      font-size: 32px;
+      font-family: sans-serif;
+      color: red;
+      font-weight: bold;
+      text-decoration: none;
+      
+    }
+    .weather-logo {
+      font-size: 24px;
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      
+    }
+    .logo {
+      margin-top: 17px;
+      
+    }
+   
+    h1 {
+      margin-top: 40px;
+      color: #333;
+    }
+    .top {
+      display: flex;
+      flex-direction: row;
+    }
+    header {
+      width: 100%;
+      
+    }
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+      margin-left: 10px;
+    }
+    .search-bar {
+      background-color: #fff;
+      width: 400px;
+      height: 50px;
+      padding: 5px 10px;
+      border-top-right-radius: 10px;
+      display: flex;
+      align-items: center;
+      border: 1px solid red;
+    }
+    .search-bar > input.search {
+      border: none;
+      outline: none;
+      flex: 1;
+      font-size: 16px;
+    }
+    .search-bar > i {
+      color: red;
+      cursor: pointer;
+    }
+    .menu-links {
+      display: flex;
+      gap: 15px;
+      position: absolute;
+      right: 25px;
+      
+    }
+    .menu-links a{
+      font-size: 16px;
+      text-decoration: none;
+      color: black;
+      font-weight: 600;
+    }
+    .navWrap {
+      display: flex;
+      justify-content: space-between; /* 왼쪽-오른쪽 딱 붙이기 */
+      align-items: center; /* 수직 정렬도 깔끔하게 */
+      width: 100%;
+      padding: 0;
+      margin-top: 20px; 
+    }
+    .navWrap > ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      padding-left: 0;
+    }
+    .navWrap > ul > li > a {
+      text-decoration: none;
+      font-size: 16px;
+      color: black;
+    }
+    .navWrap >  p {
+    font-weight: bold;
+    color: red;
+    }
+    .leftside {
+      width: 65%;
+      margin-right: 10px;
+    }
+    .rightside {
+      width: 35%;
+      overflow-x: auto;
+    }
+    .weather {
+      padding: 40px 0px;
+      display: flex;
+    } 
+    .weather > .leftside > .location-weather> .weather-info> .today >.tw {
+      font-size: 15px;
+
+    }
+    .weather > .leftside > .location-weather> .weather-info> .dateInfo{
+      font-size: 12px;
+
+    }
+    .location-weather {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .weather-info {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+    .weather-view {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+   .today-weather {
+      width: 55%;
+      height: 300px;
+      border: 1px solid gray;
+      border-radius: 10px;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      background-image: url(../images/todayweather.PNG);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .date-weather {
+      width: 45%;
+      height: 300px;
+      border: 1px solid gray;
+      border-radius: 10px;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      background-image: url(../images/dateweather.PNG);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .notice {
+      font-size: 11px;
+      color: gray;
+    }
+    .week-weather {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: baseline;
+      margin-bottom: 10px;
+    }
+    .ww {
+      font-size: 15px;
+      margin-right: 10px;
+    }
+     .region-weather{
+      font-size: 12px;
+    }
+    
+    .week-weather-view{
+      width: 100%;
+      height: 150px;
+      background-image: url(../images/weekweather.PNG);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+    }
+    .three-hour-weather {
+      display: flex;
+      align-items:center ;
+      justify-content: baseline;
+    }
+    .threehoure {
+      font-size: 15px;
+      margin-right: 10px;
+    }
+     .three-hour-weather > .region-weather{
+      font-size: 12px;
+    }
+    .middle {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+    }
+    .middle > .middle-left {
+      width: 55%;
+      margin-right: 10px;
+    }
+    
+    .week-table {
+      width: 100%;
+      border-collapse: collapse;
+      border-top: 2px solid black;
+      border-bottom: 2px solid black;;
+    }
+    .week-table td {
+      border: 1px solid black;
+      text-align: center;
+      padding: 10px;
+    }
+    .week-table th {
+      border-bottom: 1px solid black;
+    }
+    .week-table td:first-child, .time th:first-child {
+      border-left: none;
+    } 
+    .week-table td:last-child, .time th:last-child{
+      border-right: none;
+    }
+    .time th {
+      border: 1px solid black;
+     
+    }
+    .weather-img {
+      height: 54px;
+      background-image: url(../images/weather-img.PNG);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    .graph {
+      height: 108px;
+      background-image: url(../images/graph.PNG);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }.rain td, .wind td {
+      font-size: 11px;
+    }
+    .middle > .middle-right {
+      width: 45%;
+    }
+    .life-index {
+      width: 100%;
+      border-collapse: collapse;
+      border-top: 2px solid black;
+      border-bottom: 2px solid black;;
+      margin-bottom: 20px;
+    }
+    table.life-index td {
+       padding: 16px 10px;
+       height: 40px;
+       vertical-align: middle;
+       border-bottom: 1px solid gray;
+    }
+    .life1,.life2, .life3, .life4 {
+      font-size: 12px;
+    }
+    .sun-info {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .sun-info >p {
+      font-size: 11px;
+      color: gray;
+      font-weight: bold;
+     }
+     .sun-info > span {
+      font-size: 13px;
+      font-weight: bold;
+     }
+     .weather-summary {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    } 
+    .weather-summary > .weather-sum {
+      font-size: 13px;
+      color: black;
+      font-weight: bold;
+    }
+    .weather-summary > .weather-sum2 {
+      font-size: 12px;
+      color: gray;
+    }
+    .summary {
+      margin-top: 15px;
+      margin-bottom: 15px;
+      font-size: 12px;
+    }
+    .text {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    table.region-week-weather {
+       width: 100%;
+      border-collapse: collapse;
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+      margin-bottom: 20px;
+    }
+    .region-week-weather th, .region-week-weather td  {
+    border: 1px solid black;
+    text-align: center;
+    }
+    .region-week-weather th:first-child, .region-week-weather td:first-child {
+      border-left: none;
+    }
+    .region-week-weather th:last-child, .region-week-weather td:last-child {
+      border-right: none;
+    }
+    .baekryeongdo {
+    height: 85px;
+    background-image: url(../images/baekryeongdo.PNG);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    }
+    .baekrain {
+      height: 10px;
+      background-image: url(../images/baekrain.PNG);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    .nation-weather {
+      display: flex;
+      align-items: center;
+    }
+    .nw {
+      font-size: 14px;
+      color: gray;
+      margin-right: 15px;
+      font-weight: bold;
+    }
+    .presentaton-time {
+      font-size: 12px;
+    }
+    .weather-map {
+      width: 100%;
+      background-image: url(../images/nation-wide.PNG);
+      background-size: contain;     /* 또는 cover */
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 450px;
+      margin-bottom: 50px;
+    }
+    .info {
+      width: 100%;
+      height: 142vh;
+      border: 1px solid black;
+      background-color: rgba(240, 240, 240,0.6);
+
+    }
+   
+     
+  </style>
+</head>
+<body>
+  
+  <div class="wrap">
+    <header>
+      <div class="top">
+    <div class="logo">
+      <a href="www.nate.com" class="main-logo">nate</a>
+      <a href="www.nate.com" class="weather-logo">날씨</a>
+    </div>
+      <div class="top-bar">
+    <form method='get' action='#' class="search-bar">
+        <input type='search' name='search' class="search">
+        <i class="fa-solid fa-magnifying-glass" onclick="alert('검색버튼이벤트발생')"></i>
+    </form>
+    <div class="menu-links">
+    <span><a href="" class="news">뉴스</a></span>
+    <span><a href="" class="sports">스포츠</a></span>
+    <span><a href="" class="enter">연예</a></span>
+    <span><a href="" class="pan">판</a></span>
+  </div>
+  </div>
+  </div>
+  <hr style="margin-top: 40px;">
+  <div class="navWrap">
+    <ul>
+      <li><a href="" class="pan">오늘날씨</a></li>
+      <li><a href="" class="pan">기상특보/태풍</a></li>
+      <li><a href="" class="pan">바다날씨</a></li>
+      <li><a href="" class="pan">세계날씨</a></li>
+      <li><a href="" class="pan">대기오염</a></li>
+    </ul>
+    <p>기상특보 강풍주의보 해제:강원도</p>
+  </div>
+  <hr style="margin-top: 20px;">
+  </header>
+  <div class="weather">
+    <div class="leftside">
+    <div class="location-weather">
+      <div class="weather-info">
+        <h3 class="today"><span class="tw">오늘날씨</span>
+        </h3>
+        <span class="dateInfo">05월 11일 (일) 서울</span>
+      </div>
+      <div class="region-select">
+        <select name="시/도 선택" style="width: 90px;"> 
+          <option>서울,경기</option>
+        </select>
+        <select name="지역 선택" style="width: 90px;"> 
+          <option>지역 선택</option>
+        </select>
+        <input type="button" name="move" value="이동">
+      </div>
+      </div>
+      <div class="weather-view">
+        <div class="today-weather"></div>
+        <div class="date-weather"></div> 
+      </div>
+      <p class="notice">* 왼쪽 '오늘날씨'는 실시간 날씨현황, 오른쪽 '어제/오늘/내일'은 최근 3일의 전반적 날씨현황 입니다.</p>
+      <div class="week-weather">
+        <h3 class="week"><span class="ww">일주일 예보</span>
+        </h3>
+        <span class="region-weather">서울·경기 > 서울</span>
+      </div>
+      <hr>
+      <div class="week-weather-view"></div>
+      <hr>
+      <div class="middle">
+        <div class="middle-left">
+      <div class="three-hour-weather">
+        <h3 class="threehour"><span class="threehoure">3시간 예보</span>
+        </h3>
+        <span class="region-weather">서울·경기 > 서울</span>
+       </div>
+        <table class="week-table">
+        <tr>  
+          <th colspan="7">오늘</th>
+        </tr>
+        <tr class="time">
+          <th>00시</th>
+          <th>03시</th>
+          <th>06시</th>
+          <th>09시</th>
+          <th>12시</th>
+          <th>15시</th>
+          <th>18시</th>
+        </tr>
+        <tr>
+          <td colspan="7" class="weather-img"></td>
+        </tr>
+        <tr>
+          <td colspan="7" class="graph"></td>
+        </tr>
+        <tr class="rain">
+          <td>강수<br>30%</td>
+          <td>강수<br>30%</td>
+          <td>강수<br>30%</td>
+          <td>강수<br>30%</td>
+          <td>강수<br>30%</td>
+          <td>강수<br>30%</td>
+          <td>강수<br>30%</td>
+        </tr>
+        <tr class="wind">
+          <td>동남<br>2m/s</td>
+          <td>동남<br>2m/s</td>
+          <td>동남<br>2m/s</td>
+          <td>동남<br>2m/s</td>
+          <td>남서<br>5m/s</td>
+          <td>서<br>5m/s</td>
+          <td>서<br>5m/s</td>
+        </tr>
+      </table>
+      
+      </div>
+      <div class="middle-right">
+        <h3 class="threehour"><span class="threehoure">생활지수</span>  </h3>
+          <table  class="life-index">
+              <tr class="life1">
+                <td>빨래지수</td>
+                <td>40</td>
+                <td>실내건조가 안전해요</td>
+              </tr>
+              <tr class="life2">
+                <td>나들이지수</td>
+                <td>50</td>
+                <td>우산을 준비하세요</td>
+              </tr>
+              <tr class="life3">
+                <td>자외선지수</td>
+                <td>10</td>
+                <td>안전한 날이에요</td>
+              </tr>
+              <tr class="life4">
+                <td>불쾌지수</td>
+                <td>70</td>
+                <td>웃는 얼굴로</td>
+              </tr>
+          </table>
+          <h3 class="sunrise" style="margin-bottom: 15px;"><span class="threehoure">일출과 일몰</span>  </h3>
+          <hr style="margin-bottom: 15px;">
+          <div class="sun-info">
+            <p>일출</p>  <span>05시 24분</span>
+            <p>일몰</p>  <span>19시 32분</span>
+          </div>
+          <hr style="margin-top: 20px;">
+      </div>
+      </div>
+      <div class="weather-summary">
+        <h3 class="weather-sum">간추린날씨</h3>
+        <span class="weather-sum2">월간/계절예보 보기 ▶</span>
+      </div>
+      <hr>
+      <p class="summary">○ (강수) 15일(목)은 전남권과 경남권, 제주도에 비가 내리겠습니다.○ (기온) 이번 예보기간 아침 기온은 11~17도, 낮 기온은 19~28도로 평년(최저기온 11~15도, 
+        최고기온 21~27도)과 비슷하거나 조금 높겠습니다.* (변동성) 15일(목)~16일(금)은 우리나라 주변 기압계의 흐름에 따라 강수지역과 시점이 변경될 가능성이 있겠으니, 
+        앞으로 발표되는 최신 예보를 참고하기 바랍니다.</p>
+      <hr style="margin-bottom: 15px;">
+        <div class="text">
+          <h3 style="font-size: 12px;">주요 도시 일주일예보</h3>
+        <span style="font-size: 10px;">*기온은 최고/최저, 강수확률을 오전/오후를 의미한다.</span>
+        </div>
+    
+        <table class="region-week-weather">
+        <tr>
+        <th style="background-color: gray;"></th>
+        <th>어제/5.10</th>
+        <th>일/5.11</th>
+        <th>월/5.12</th>
+        <th>화/5.13</th>
+        <th>수/5.14</th>
+        <th>목/5.15</th>
+        <th>금/5.16</th>
+        </tr>
+        <tr>
+          <td>백령도</td>
+          <td colspan="7" style="text-align:center; vertical-align:middle";>
+          <div class="baekryeongdo">
+          </div></td>
+        </tr>
+        <tr>
+          <td>강수확률</td>
+          <td colspan="7" class="baekrain"></td>
+        </tr>
+         <tr>
+          <td>춘천</td>
+          <td colspan="7" style="text-align:center; vertical-align:middle";>
+          <div class="baekryeongdo">
+          </div></td>
+        </tr>
+        <tr>
+          <td>강수확률</td>
+          <td colspan="7" class="baekrain"></td>
+        </tr>
+         <tr>
+          <td>서울</td>
+          <td colspan="7" style="text-align:center; vertical-align:middle";>
+          <div class="baekryeongdo">
+          </div></td>
+        </tr>
+        <tr>
+          <td>강수확률</td>
+          <td colspan="7" class="baekrain"></td>
+        </tr>
+         <tr>
+          <td>대전</td>
+          <td colspan="7" style="text-align:center; vertical-align:middle";>
+          <div class="baekryeongdo">
+          </div></td>
+        </tr>
+        <tr>
+          <td>강수확률</td>
+          <td colspan="7" class="baekrain"></td>
+        </tr>
+         <tr>
+          <td>대구</td>
+          <td colspan="7" style="text-align:center; vertical-align:middle";>
+          <div class="baekryeongdo">
+          </div></td>
+        </tr>
+        <tr>
+          <td>강수확률</td>
+          <td colspan="7" class="baekrain"></td>
+        </tr>
+         <tr>
+          <td>강원도</td>
+          <td colspan="7" style="text-align:center; vertical-align:middle";>
+          <div class="baekryeongdo">
+          </div></td>
+        </tr>
+        <tr>
+          <td>강수확률</td>
+          <td colspan="7" class="baekrain"></td>
+        </tr>
+      </table>
+      </div>
+      <div class="rightside">
+        <div class="nation-weather">
+         <h3 class="nation-wide"><span class="nw">전국 날씨</span>
+        </h3>
+        <span class="presentaton-time">05.11 (일) 02시 발표</span>
+        </div>
+        <div class="weather-map"></div>
+        <form method="post" action='#' class="info" >
+          
+        </form>
+
+      </div>
+    </div>
+  </div>
+  </div>
+</body>
+</html>

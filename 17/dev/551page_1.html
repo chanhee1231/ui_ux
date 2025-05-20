@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      box-sizing: border-box;
+    }
+    .wrap {
+      margin: 0 auto;
+      text-align: center;
+    }
+    ul {
+      list-style: none;
+      
+    }
+    ul > li > input {
+      width: 400px;
+      height: 40px;
+      margin-bottom: 15px;
+    }
+    .button {
+      width: 400px;
+      list-style: none;
+      display: flex;
+      position: relative;
+      left: 100px;
+      gap: 5px;
+    }
+    .button > li {
+      width: 100%;
+    }
+    form {
+      width: 600px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+    <div class="wrap">
+      <form method='post' action='#' style="width: 600px;">
+        <fieldset>
+          <ul>
+            <label for="num1">X</label>
+        <li><input type="type" name="num1" id="num1"></li>
+        <label for="num2">Y</label>
+        <li><input type="type" name="num2" id="num2"></li>
+        <label for="result">result</label>
+         <li><input type="type" name="result" id="result"></li>
+      </ul>
+      </fieldset>
+      </form>
+     
+      <ul class="button">
+        <li><button id="plusbtn">더하기</button></li>
+        <li><button id="minusbtn">빼기</button></li>
+        <li><button id="powerbtn">곱하기</button></li>
+        <li><button id="divbtn">나누기</button></li>
+        <li><button id="clearbtn">clear</button></li>
+      </ul>
+    </div>
+  <script>
+    let num1 = document.querySelector('#num1');
+    let num2 = document.querySelector('#num2');
+    
+    let plusbtn = document.querySelector('#plusbtn');
+    let minusbtn = document.querySelector('#minusbtn');
+    let powerbtn = document.querySelector('#powerbtn');
+    let divbtn = document.querySelector('#divbtn');
+    let clearbtn = document.querySelector('#clearbtn');
+
+    plusbtn.onclick = function(event) {
+       result.value = Number(num1.value) + Number(num2.value);
+     };
+    minusbtn.onclick = function(event) {
+       result.value = Number(num1.value) - Number(num2.value);
+     };
+      powerbtn.onclick = function(event) {
+       result.value = Number(num1.value) * Number(num2.value);
+     };
+     divbtn.onclick = function(event) {
+      let divisionResult= Number(num1.value) / Number(num2.value);
+       result.value = divisionResult.toFixed(2);
+     };
+     clearbtn.onclick = function(event) {
+      num1.value = '';
+      num2.value = '';
+      result.value = '';
+     }
+  </script>
+</body>
+</html>

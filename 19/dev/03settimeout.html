@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      width: 600px;
+      height: 300px;
+      margin: 30 auto;
+      border: 3px solid red;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+    button {
+      display: block;
+      width: 100px;
+      height: 50px;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <button id="btnStart">time시작</button>
+    <button id="btnStop">time종료</button>
+  </div>
+
+
+  <script>
+    let btnStart = document.querySelector('#btnStart');
+    let btnStop = document.querySelector('#btnStop');
+    let timeId;
+    btnStart.addEventListener("click", startFunc,false);
+
+    function startFunc() {
+      //timeId = setTimeout(()=>{console.log('알림발생')},3000);
+      timeId = setInterval(()=>{console.log('알림발생')},3000)
+    }
+    function stopFunc() {
+      console.log("알림해제");
+      clearTimeout(timeId);
+    }
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>자바스크립트 즉시실행 함수</h1>
+  
+
+  <script>
+    let h1obj = document.querySelector("h1");
+    //익명함수
+    let sum = function(a, b) {
+      return 1000 + 100;
+    }
+     let result = sum;
+    // h1obj.innerHTML = `두 수의 합은 ${result}`; h1스타일로 결과나옴
+    // console.log(`result = ${result}`); // 콘솔에서 결과나옴
+     document.write(`result = ${result()}`); //바디에 출력
+    (function(a,b){
+      document.write(`<br>10 + 20 = ${a+b}`);
+    }(10,20));
+   
+  </script>
+  
+</body>
+</html>

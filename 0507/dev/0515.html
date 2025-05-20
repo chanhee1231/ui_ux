@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      box-sizing: border-box;
+    }
+    .wrap {
+      width: 1120px;
+      height: 100vh;
+      margin: 0 auto;
+      
+    }
+    label {
+      display: inline-block;
+      width: 150px;
+      height: 50px;
+    }
+    .site-info-input {
+      width: 100%;
+      border:  none;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid black;
+    }
+
+td {
+  padding: 10px;
+  
+  border: 1px solid black;
+}
+    .first-column {
+      width: 150px;
+      height: 70px;
+      text-align: center;
+      background-color: rgb(216, 205, 205);
+    }
+    input {
+      margin-left: 20px;
+      height: 30px;
+      text-align: center;
+    }
+    ul {
+      list-style: none;
+      display: flex;
+    }
+    #brith {
+      width: 100px;
+      background-color: rgba(170, 165, 165,0.5);
+      text-align: center;
+    }
+    .address {
+      display: block; 
+    }
+    #add2 {
+      width: 300px;
+      height: 25px;
+      margin-right: 5px;
+    }
+
+    
+    
+  </style>
+</head>
+<body>
+  <div class="wrap">
+  <h1 style="font-size: 15px; text-align: center; margin-top: 30px;">회원가입</h1>
+  <form method='post' action='#' class="site-info-input">
+    <legend style="margin-bottom: 10px;">사이트 이용정보 입력</legend>
+      <table class="first-table">
+          <tr>
+              <td class="first-column">아이디</td>
+              <td> <input type='text' name='id' id="id" style="position: relative; top: 10px;"> 
+                <span style="font-size:10px ; position: relative; bottom: 20px; right: 190px;">
+                영문자,숫자,_만 입력가능. 최소 3자 이상 입력하세요.</span></td>
+          </tr>
+          <tr>
+              <td class="first-column">비밀번호</td>
+              
+              <td><input type='password' name='pwd' id="pwd"></td>
+          </tr>
+          <tr>
+              <td class="first-column">비밀번호 확인</td>
+              <td><input type='password' name='checkpwd' id="checkpwd"></td>
+          </tr>
+        </table>     
+  </form>
+  <form method='post' action='#'>
+    <legend style="margin-top: 20px; margin-bottom: 10px;">개인정보 입력</legend>
+     <table>
+         <tr>
+             <td class="first-column">이름</td>
+             <td><input type='text' name='name' id="name"></td>
+         </tr>
+         <tr style="height: 100px;">
+             <td class="first-column">닉네임</td>
+             <td><input type="text" name="nickname" id="nickname" style="position:relative; top: 40px;"><span style="position: relative; bottom: 30px; left: 10px;"><p style="font-size: 12px;">공백없이 한글,영문,숫자만 입력가능(4글자 이상)<br>닉네임을 바꾸시면 앞으로 1일 이내에 변경할 수 없습니다.</p></span></td>
+       </tr>
+        <tr>
+             <td class="first-column">E-mail</td>
+             <td><input type="email" name="e-mail" id="e-mail"></td>
+         </tr>
+         <tr>
+             <td class="first-column" >가입경로</td>
+             <td>
+              <ul>
+                <li><input type="radio" name="radio1">인터넷 검색</li>
+                <li><input type="radio" name="radio2">배너 광고</li>
+                <li><input type="radio" name="radio3">관련 기사를 보고</li>
+                <li><input type="radio" name="radio4">미라지 홈페이지 보고</li>
+                <li><input type="radio" name="radio5">주변 사람 소개</li>
+                <li><input type="radio" name="radio6">기타</li>
+                
+            </ul>
+             </td>
+         </tr>
+         <tr>
+             <td class="first-column">전화번호</td>
+             <td><input type="tel" name="phone-number" id="phone-number"></td>
+         </tr>
+         <tr>
+             <td class="first-column">휴대폰 번호</td>
+             <td><input type="tel" name="phone-number2" id="phone-number2"></td>
+         </tr>
+         <tr>
+             <td class="first-column">생년월일</td>
+             <td><input type="text" name="birth" id="brith" placeholder="연도-월-일"></td>
+         </tr>
+         <tr>
+             <td class="first-column">주소</td>
+             <td>
+              <ul class="address">
+                <li><input type="text" name="add1" id="add1" style="width: 100px;height: 25px; margin-bottom: 5px; margin-right: 5px;">
+                  <span><button>주소검색</button></span></li>
+                <li><input type="text" name="add2" id="add2" ><span>기본주소</span></li>
+                <li><input type="text" name="add3" id="add2" ><span>상세주소</span></li>
+                <li><input type="text" name="add4" id="add2" ><span>참고항목</span></li>
+
+             </ul>
+            </td>
+         </tr>
+        </table>
+ </form>
+ <form method='post' action='#' class="site-info-input">
+    <legend style="margin-top: 20px; margin-bottom: 10px;">기타 개인설정</legend>
+      <table class="first-table">
+        <tr>
+          
+                    <td class="first-column">카카오톡 메세지</td>
+                    <td><input type="checkbox" name="receiveMsg" id="receiveMsg"><span > 카카오톡 메세지를 받겠습니다.
+                       </span><span style="color: rgba(160, 20, 20,0.7);"> > 수신체크를 하시면 세일 소식을 가장 먼저 받아보실 수 있습니다. </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="first-column">메일링서비스</td>
+                    <td><input type="checkbox" name="receiveEmail" id="receiveEmail">정보 메일을 받겠습니다.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="first-column">SMS 수신여부</td>
+                    <td><input type="checkbox" name="receiveSMS" id="receiveSMS">휴대폰 문자메세지를 받겠습니다.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="first-column">정보공개</td>
+                    <td>정보공개를 바꾸시면 앞으로 0일 이내에는 변경이 안됩니다.<br>
+                        <input type="checkbox" name="openInfo" id="openInfo">다른분들이 나의 정보를 볼 수 있도록 합니다.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="first-column">자동등록방지</td>
+                    <td> <img src="./../images/capcha.png">
+                        <textarea name="checkHuman" id="checkHuman" cols="10" rows="3"></textarea><br>
+                        자동등록방지 숫자를 순서대로 입력하세요.
+                    </td>
+                </tr>
+            </table>
+            <div class="buttons" style="text-align: center;">
+                <button type="submit" style="background-color: rgb(7, 5, 6); color: white; width: 10%; margin-top: 20px; height: 30px; border: none; margin-bottom: 40px;" value="signUp">회원가입</button>
+                <button type="reset" style="width: 10%; margin-top: 20px; height: 30px; margin-bottom: 40px;">취소</button>
+            </div>
+  </form>
+  </div>
+ 
+</body>
+</html>
